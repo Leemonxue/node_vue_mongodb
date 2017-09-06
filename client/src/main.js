@@ -6,9 +6,8 @@ import router from './router'
 import axios from 'axios'
 
 Vue.config.productionTip = false
-Vue.prototype.HOST = '/api'
 Vue.prototype.$http = axios
-axios.defaults.baseURL = 'http://localhost:3000'
+axios.defaults.baseURL = 'http://localhost:3000/api'
 
 /* eslint-disable no-new */
 new Vue({

@@ -1,6 +1,8 @@
 <template>
   <div class="hello">
     <button @click="test">Test</button>
+    <P>亲爱的用户 {{username}} ，欢迎您！</P>
+    <p>您的账号是 {{ID}} ~</p>
   </div>
 </template>
 
@@ -9,17 +11,22 @@ export default {
   name: 'hello',
   data () {
     return {
+      username:'',
+      ID:''
     }
   },
   methods:{
     test:function(){
-      var url = this.HOST 
-      this.$http.post(url).then(res => {
-      console.log(res.data)
+      alert('欢迎'+this.username)
+    }
+  },
+  mounted(){
+    this.$http.post().then(res => {
+    this.username = res.data.name
+    this.ID = res.data.id
     },res => {
       console.info('调用失败');
     });
-    }
   }
 }
 </script>
